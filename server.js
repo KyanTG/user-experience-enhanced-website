@@ -8,7 +8,18 @@ import { Liquid } from 'liquidjs';
 const app = express();
 app.use(express.static('public'))
 
+// zorgt dat liquid de view engine is
 
+const engine = new Liquid();
+app.engine('liquid', engine.express()); 
+
+// zorgt dat de views map gebruikt word voor de liquid templates
+
+app.set('views', './views');
+
+// zorgt dat werken met data wat fijner is
+
+app.use(express.urlencoded({extended: true}))
 
 
 

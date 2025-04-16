@@ -25,3 +25,9 @@ app.use(express.urlencoded({extended: true}))
 
 app.set('port', process.env.PORT || 8000)
 
+// luistert naar de code hierboven en laat weten in de terminal zodra de server gestart is
+
+app.listen(app.get('port'), function () {
+
+    console.log(`Application started on http://localhost:${app.get('port')}`)
+  })

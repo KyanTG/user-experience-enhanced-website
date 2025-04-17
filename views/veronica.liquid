@@ -12,27 +12,27 @@
                     <p class="informatie-show">{{ data.show.body }}</p>
                 </div>
                 <div>
-                    <img src="/Time.svg" alt="tijd">
+                    <img src="/images/Time.svg" alt="tijd">
                     <time datetime="{{ data.from }} {{ data.until }}" class="artiest-tijd">{{ data.from | slice: 0,5 }} - {{ data.until | slice: 0,5 }}</time>
                 </div>
 
                 {% comment %} de loop in de loop zorgt ervoor dat er meerdere data word geladen zonder dat je errays er in hoeft te verwerken {% endcomment %}
                 {% for person in data.show.users %}
                     <div>
-                        <img src="/User.svg" alt="gebruiker">
+                        <img src="/images/User.svg" alt="gebruiker">
                         <p class="naam-artiest">{{ person.mh_users_id.full_name }}</p>
                     </div>
                     <img class="persoon-radio" src="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}" alt="cover van artiest"> 
                 {% endfor %}   
 
                 <button class="play">
-                    <img src="/play-button.svg" alt="play button">
+                    <img src="/images/play-button.svg" alt="play button">
                 </button>
 
                 <form action="/veronica" method="POST">
                     <input type="hidden" name="showid" value="{{ data.show.id }}">
                     <button class="like" type="submit">
-                        <img src="/heart.svg" alt="like button">
+                        <img src="/images/heart.svg" alt="like button">
                     </button>
                 </form>
             </article>

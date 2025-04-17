@@ -39,6 +39,8 @@ app.get('/veronica', async function (request, response) {
   response.render('veronica.liquid', {algemeen: algemeenVeronicaJSON.data, radio:radioStationsJSON} )
 })
 
+days
+
 // likes page veronica
 app.get('/veronica/likes', async function (request, response) {
 

@@ -260,18 +260,17 @@
             grid-row: 3/4;
             background: none;
             border: none;
+            color: var(--veronica-color-white);
+        }
+
+        .like-activate {
+            color: var(--veronica-color-main);
         }
 
         .unlike {
-
-            font-family: var(--font-regular);
-            width: 48px;
-            height: 24px;
-            color: var(--veronica-color-white);
-            background-color: var(--veronica-color-secondary);
-            border: 3px solid var(--veronica-color-white);
-            border-radius: 10px;
-            margin-top: 10px;  
+            background: none;
+            border: none;
+            color: var(--veronica-color-main)
         }
     }
 }

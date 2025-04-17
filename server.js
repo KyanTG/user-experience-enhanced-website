@@ -21,6 +21,21 @@ app.set('views', './views');
 
 app.use(express.urlencoded({extended: true}))
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // de port waarop de plaatselijke server draait
 
 app.set('port', process.env.PORT || 8000)

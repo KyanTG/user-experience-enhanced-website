@@ -1,0 +1,49 @@
+{% render 'partials/head.liquid' %}
+
+{% render 'partials/header-veronica.liquid' %}
+
+<section class="programma-sec">
+
+        {% comment %} loop voor de programmas zelf in veronica met daarbij de tijden en artiest {% endcomment %}
+     
+        {% if data.liked_shows == 0 %}
+            <h2>Sorry er zijn nog geen likes gegeven!</h2>
+        {% else %} 
+
+        {% for data in algemeen.liked_shows %}
+            <article class="programma">
+                <div>
+                    <h2>{{ data.mh_show_id.name }}</h2>
+                    <p class="informatie-show">{{ data.mh_show_id.body}}</p>
+                </div>
+
+                {% comment %} de loop in de loop zorgt ervoor dat er meerdere data word geladen zonder dat je errays er in hoeft te verwerken {% endcomment %}
+                {% for person in data.mh_show_id.users %}
+                    <div>
+                        <img src="/User.svg" alt="gebruiker">
+                        <p class="naam-artiest">{{ person.mh_users_id.full_name }}</p>
+                    </div>
+                    <img class="persoon-radio" src="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}" alt="cover van artiest"> 
+                {% endfor %}   
+
+                <button class="play">
+                    <img src="/play-button.svg" alt="play button">
+                </button>
+
+                <form action="/veronica/likes" method="POST">
+                    {% comment %} <input type="hidden" name="showid" value="{{ data.mh_show_id.id }}"> {% endcomment %}
+                    <button class="unlike" type="submit">unlike</button>
+                </form> 
+            </article>
+        {% endfor %}
+        {% endif %}
+        
+
+        <section class="bekijk-ook">
+
+        </section>
+
+</section>
+
+
+{% render 'partials/foot.liquid' %}

@@ -23,10 +23,10 @@
                     <p class="naam-artiest">{{ person.mh_users_id.full_name }}</p>
                 </div>
                 {% comment %} <img class="persoon-radio" src="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}" alt="cover van artiest">  {% endcomment %}
-                <picture class="persoon-radio">
+                <picture class="persoon-radio-overlay">
                     <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}?format=avif">
                     <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}?format=webp">
-                    <img class="persoon-radio" src="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}" alt="cover van artiest">
+                    <img class="persoon-radio" src="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}" alt="cover van artiest" sizes="(( min-width: 300px ) and ( max-width: 700px)) 40px, (min-width: 700px) 48px">
                 </picture>
             {% endfor %}   
 

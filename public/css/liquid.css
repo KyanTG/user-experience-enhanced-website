@@ -240,11 +240,14 @@
             gap: 4px;
         }
 
+        .persoon-radio-overlay {
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
         .persoon-radio {
             grid-column: 1/2;
             grid-row: 1/2;
-            width: 40px;
-            height: 40px;
+            max-width: 48px;
             border-radius: 100%;
             border: 2px solid var(--veronica-color-white);
         }

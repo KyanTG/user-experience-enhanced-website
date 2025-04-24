@@ -31,7 +31,7 @@
             </button>
 
             <form action="/veronica/likes" method="POST">
-                {% comment %} <input type="hidden" name="showid" value="{{ data.mh_show_id.id }}"> {% endcomment %}
+                <input type="hidden" name="showid" value="{{ data.mh_show_id.id }}">
                 <button class="unlike" type="submit">
                     <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="12" cy="12" r="11" fill="#0091FF" stroke="#FAFAFA" stroke-width="2"/>
@@ -48,50 +48,5 @@
 
     </section>
 </section>
-
-<script type="module">
-
-//     let programLike = document.querySelectorAll(".programma");
-
-//     programLike.forEach(element => {
-//         let likeFill = element.querySelector(".unlike");
-
-//     likeFill.onclick = function() {
-//         likeFill.classList.toggle("unlike-activate");
-//     }
-// });
-
-    document.addEventListener('submit', async function(event) {
-
-    const form = even.target
-
-    if (!form.hasAttribute('data-enhanced')) {
-        return
-    }
-
-
-    event.preventDefault()
-
-    let formData = new FormData(form)
-
-    if (even.submitter) {
-        formData.append(event.submitter.name, event.submitter.value)
-    }
-
-    const response = await fetch (form.action, {
-        method: form.method,
-        body: new URLSearchParams(formData)
-
-    const responeText - await response.text()
-
-    const parser = new DOMParser()
-    const responseDOM = parser.parseFromString(responseText, 'text/html')
-
-    const newState = responseDOM.querySelector('[data-enhanced="' + form.getAttribute('data-enhanced') + '"]')
-
-    form.outerHTML = newState.outerHTML
-    })
-    })
-</script>
 
 {% render 'partials/foot.liquid' %}

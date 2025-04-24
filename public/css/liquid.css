@@ -269,7 +269,6 @@
     animation: loading 1s infinite ease-in-out;
 }
 
-
 .succes button svg {
     color: var(--veronica-color-main);
 }
@@ -290,7 +289,7 @@
     60% { transform: rotate( -5deg ); scale: 1.1; }
     65% { transform: rotate( -10deg ); }
     70% { transform: rotate( -5deg ); }
-    75% { transform: rotate( 0deg ); scale: 1.1; color: var(--veronica-color-main);}
+    75% { transform: rotate( 0deg ); scale: 1.1; color: var(--veronica-color-main); }
     80% { transform: rotate( 5deg ); }
     85% { transform: rotate( 10deg ); }
     90% { transform: rotate( 5deg ); scale: 1.1; }

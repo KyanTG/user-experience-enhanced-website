@@ -22,7 +22,12 @@
                     <img src="/images/User.svg" alt="gebruiker">
                     <p class="naam-artiest">{{ person.mh_users_id.full_name }}</p>
                 </div>
-                <img class="persoon-radio" src="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}" alt="cover van artiest"> 
+                {% comment %} <img class="persoon-radio" src="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}" alt="cover van artiest">  {% endcomment %}
+                <picture>
+                    <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}?format=avif">
+                    <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}?format=webp">
+                    <img class="persoon-radio" src="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}" alt="cover van artiest">
+                </picture>
             {% endfor %}   
 
             <button class="play">

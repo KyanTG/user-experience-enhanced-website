@@ -262,17 +262,40 @@
             border: none;
             color: var(--veronica-color-white);
         }
-
-        .like-activate {
-            color: var(--veronica-color-main);
-        }
-
-        .unlike {
-            background: none;
-            border: none;
-            color: var(--veronica-color-main)
-        }
     }
+}
+
+.loading button svg {
+    animation: loading 1s infinite ease-in-out;
+}
+
+
+.succes button svg {
+    color: var(--veronica-color-main);
+}
+
+@keyframes loading {
+
+    0% { transform: rotate( 0deg ); }
+    5% { transform: rotate( 5deg ); }
+    15% { transform: rotate( 0deg ); scale: 1.1; color: var(--veronica-color-main); }
+    20% { transform: rotate( -5deg ); }
+    25% { transform: rotate( -10deg ); }
+    30% { transform: rotate( -5deg ); scale: 1.1; }
+    35% { transform: rotate( 0deg ); }
+    40% { transform: rotate( 5deg ); }
+    45% { transform: rotate( 10deg ); scale: 1.1; color: var(--veronica-color-main); }
+    50% { transform: rotate( 5deg ); }
+    55% { transform: rotate( 0deg ); }
+    60% { transform: rotate( -5deg ); scale: 1.1; }
+    65% { transform: rotate( -10deg ); }
+    70% { transform: rotate( -5deg ); }
+    75% { transform: rotate( 0deg ); scale: 1.1; color: var(--veronica-color-main);}
+    80% { transform: rotate( 5deg ); }
+    85% { transform: rotate( 10deg ); }
+    90% { transform: rotate( 5deg ); scale: 1.1; }
+    95% { transform: rotate( 0deg ); }
+    100% { transform: rotate( -5deg ); }
 }
 
 footer {

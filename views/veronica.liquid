@@ -23,7 +23,7 @@
                     <p class="naam-artiest">{{ person.mh_users_id.full_name }}</p>
                 </div>
                 {% comment %} <img class="persoon-radio" src="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}" alt="cover van artiest">  {% endcomment %}
-                <picture>
+                <picture class="persoon-radio">
                     <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}?format=avif">
                     <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}?format=webp">
                     <img class="persoon-radio" src="https://fdnd-agency.directus.app/assets/{{ person.mh_users_id.cover }}" alt="cover van artiest">
@@ -34,7 +34,7 @@
                 <img src="/images/play-button.svg" alt="play button">
             </button>
 
-            <form action="/veronica" method="POST" data-enhanced="{{ data.show.id }}">
+            <form action="/veronica" method="POST" data-enhanced="form-{{ data.show.id }}">
                 <input type="hidden" name="showid" value="{{ data.show.id }}">
                 <button class="like" type="submit">
                     <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,15 +54,56 @@
 
 <script type="module">
 
-    let programLike = document.querySelectorAll(".programma");
+    document.addEventListener('submit', async function(event) {
 
-    programLike.forEach(element => {
-        let likeFill = element.querySelector(".like");
+    const form = event.target
 
-    likeFill.onclick = function() {
-        likeFill.classList.toggle("like-activate");
+    if (!form.hasAttribute('data-enhanced')) {
+     return
     }
-});
+
+    // default weghalen en loading state toegevoegd
+
+    event.preventDefault()
+
+    form.classList.add('loading')
+
+
+
+    let formData = new FormData(form)
+
+    if (event.submitter) {
+        formData.append(event.submitter.name, event.submitter.value)
+    }
+
+    const response = await fetch (form.action, {
+    method: form.method,
+    body: new URLSearchParams(formData)
+    })
+
+    const responseText = await response.text()
+
+    const parser = new DOMParser()
+    const responseDOM = parser.parseFromString(responseText, 'text/html')
+
+    const newState = responseDOM.querySelector('[data-enhanced="' + form.getAttribute('data-enhanced') + '"]')
+
+    // laoding state remove
+
+    form.classList.remove('loading')
+
+    // succes state
+
+    newState.classList.add('succes')
+
+
+    // if (form.classList.includes("/like")) {
+    //     newState.classList.add('succes')
+    // }
+
+    form.outerHTML = newState.outerHTML
+})
+
 </script>
 
 {% render 'partials/foot.liquid' %}

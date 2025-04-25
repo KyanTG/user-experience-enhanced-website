@@ -43,7 +43,7 @@
             
             {% if is_liked %}
 
-            <form action="/veronica/dislike" method="POST" data-enhanced="form- {{ data.show.id }}">
+            <form action="/veronica/dislike" method="POST" data-enhanced="form-{{ data.show.id }}">
                 <input type="hidden" name="showid" value="{{ data.show.id }}">
                 <button class="like" type="submit">
                     <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,11 +112,9 @@
     const newState = responseDOM.querySelector('[data-enhanced="' + form.getAttribute('data-enhanced') + '"]')
 
     // laoding state remove
-
     form.classList.remove('loading')
 
     // succes state
-
     if (form.action.includes("/like")) {
         newState.classList.add('succes')
     }

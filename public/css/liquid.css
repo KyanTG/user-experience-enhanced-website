@@ -7,8 +7,29 @@
     
 }
 
+@view-transition {
+    navigation: auto;
+}
+
+.programma-sec { view-transition-name: gaaf }
 
 
+::view-transition-old(gaaf) {
+    animation: fade 0.5s linear forwards;
+}
+
+::view-transition-new(gaaf) {
+    animation: slide 0.5s linear reverse;
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 /* notfound page */
 
@@ -167,7 +188,7 @@
     flex-direction: column;
     row-gap: 20px;
     overflow: scroll;
-    /* height: 65vh; */
+    height: 65vh;
     
 
     .programma {
@@ -179,6 +200,7 @@
         padding: 16px 16px 12px 12px;
         border-radius: 8px;
         row-gap: 8px;
+        column-gap: 8px;
 
         div:nth-of-type(1) {
             display: flex;
@@ -259,12 +281,21 @@
             background: none;
             border: none;
         }
+
         .like, form {
             grid-column: 3/4;
             grid-row: 3/4;
             background: none;
             border: none;
             color: var(--veronica-color-white);
+        }
+
+        .unlike, form {
+            grid-column: 3/4;
+            grid-row: 3/4;
+            background: none;
+            border: none;
+            color: var(--veronica-color-main);
         }
     }
 }

@@ -119,6 +119,17 @@
         newState.classList.add('succes')
     }
 
+    // view transition
+
+    // Overschrijf ons formulier met de nieuwe HTML, met of zonder een View Transition, afhankelijk van de browser
+    // if (document.startViewTransition) {
+    //     document.startViewTransition(function() {
+    //         form.outerHTML = newState.outerHTML
+    //     })
+    // } else {
+    //     form.outerHTML = newState.outerHTML
+    // }
+
     form.outerHTML = newState.outerHTML
 })
 

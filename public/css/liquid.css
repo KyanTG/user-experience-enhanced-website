@@ -10,6 +10,8 @@ body {
     background-color: var(--veronica-color-white);
 }
 
+/* view transition part */
+
 @view-transition {
     navigation: auto;
 }
@@ -35,6 +37,7 @@ body {
         opacity: 0;
     }
 }
+
 
 /* notfound page */
 
@@ -74,6 +77,7 @@ body {
     padding-block: 30px;
     position: sticky;
     top: 0;
+    z-index: 10;
 
     @media (min-width: 1080px) {
         justify-content: flex-start;
@@ -118,15 +122,17 @@ body {
 
 
 .hoofd-nav {
+    display: flex;
+    justify-content: center;
     background-color: var(--veronica-color-white);
     padding-block: 16px;
     position: sticky;
     top: 92px;
+    z-index: 9;
 
     ul {
         display: flex;
         justify-content: flex-start;
-        overflow-x: scroll;
         align-items: center;
         flex-direction: row;
         gap: 32px;
@@ -155,6 +161,7 @@ body {
     padding-block: 8px;
     position: sticky;
     top: 143px;
+    z-index: 8;
 
     ul {
         display: flex;
@@ -163,6 +170,14 @@ body {
         flex-direction: row;
         gap: 5%;
         list-style: none;
+
+        @media (min-width: 600px) {
+            gap: 4%;
+        }
+
+        @media (min-width: 1080px) {
+            gap: 3%;
+        }
     
 
         button {
@@ -189,12 +204,22 @@ body {
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     row-gap: 20px;
     overflow: scroll;
     height: 65vh;
     background-color: var(--veronica-color-white);
+    padding-top: 8px;
+
+    @media (min-width: 600px) {
+        padding-top: 16px;
+    }
+
+    @media (min-width: 1080px) {
+        height: unset;
+        padding-top: 32px;
+    }
     
 
     .programma {
@@ -211,7 +236,6 @@ body {
         @media ( min-width: 600px) {
             width: 445px;
         }
-
 
         div:nth-of-type(1) {
             display: flex;
@@ -351,6 +375,8 @@ body {
 
 footer {
 
+    .mainfooter {
+
     background-color: var(--veronica-color-white);
     position: sticky;
     bottom: 0;
@@ -359,37 +385,71 @@ footer {
         display: none;
     }
     
-    ul {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        list-style: none;
-        gap: 5%;
-        padding-block: 16px;
-
-
-        a {
+        ul {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            width: 22vw;
-            font-family: var(--font-bold);
-            font-size: var(--font-size-p-main);
-            color: var(--veronica-color-secondary);
+            justify-content: center;
+            flex-direction: row;
+            list-style: none;
+            gap: 5%;
+            padding-block: 16px;
 
-            img {
+
+            a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-decoration: none;
+                width: 22vw;
+                font-family: var(--font-bold);
+                font-size: var(--font-size-p-main);
                 color: var(--veronica-color-secondary);
-                width: 24px;
-            }
-        }
 
-        a:hover, a:focus {
-            color: var(--veronica-color-main);
-            text-underline-offset: 8px;
-            text-decoration-line: 2px;
-            text-decoration: underline;
+                img {
+                    color: var(--veronica-color-secondary);
+                    width: 24px;
+                }
+            }
+
+            a:hover, a:focus {
+                color: var(--veronica-color-main);
+                text-underline-offset: 8px;
+                text-decoration-line: 2px;
+                text-decoration: underline;
+            }
         }
     }
 }
+
+.bigscreenfooter {
+    display: none;
+
+    @media (min-width: 1080px) {
+        display: flex;
+        flex-direction: row;
+        height: 20vh;
+        overflow: hidden;
+        background-color: var(--veronica-color-darksecondary);
+    }
+}
+
+    .media, .radiostations {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .bigscreenfooter > img {
+        width: 69px;
+    }
+
+    .media > h2, .media > p {
+        color: var(--veronica-color-white);
+    }
+
+    .radiostations > a, .media > a {
+        color: var(--veronica-color-white);
+        text-decoration: none;
+    }
+    
+    
 

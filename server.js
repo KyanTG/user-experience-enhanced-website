@@ -74,17 +74,26 @@ app.post('/veronica/like', async function (request, response) {
 })
 
 
-// app.post('/veronica/likes', async function (request, response) {
+// De delete
 
-//   const deleteLike = await fetch('https://fdnd-agency.directus.app/items/mh_accounts/7?fields=id,name,liked_shows.mh_show_id.id', {
-//     method: 'DELETE',         
-//     headers: {
-//       'Content-Type': 'application/json;charset=UTF-8'
-//     },
-//   })
+ app.post('/veronica/likes', async function (request, response) {
 
-//   response.redirect(303, '/veronica/likes' )  // hierdoor word je teruggestuurd naar de likes page nadat je een like hebt verwijderd
-// })
+  const toDelete = request.body.showid
+
+  // Haal uit mh_accounts_shows het ID op met account id 7 en show id ...
+  const likedShows = await fetch('https://fdnd-agency.directus.app/items/mh_accounts_shows?filter={"mh_accounts_id":7,"mh_show_id":' + toDelete + '}')
+  const likedShowsJSON = await likedShows.json()
+
+  const deleteID = likedShowsJSON.data[0].id 
+  
+  const deleteLike = await fetch('https://fdnd-agency.directus.app/items/mh_accounts_shows/' + deleteID, {
+    method: 'DELETE',         
+     headers: {
+       'Content-Type': 'application/json;charset=UTF-8'
+    },
+})
+  response.redirect(303, '/veronica/likes' )  // hierdoor word je teruggestuurd naar de likes page nadat je een like hebt verwijderd
+})
 
 // error page
 

@@ -4,7 +4,7 @@ Ik moest voor de opdrachtgever triple / mediahuis een programma radio gids maken
 
 ## Ontwerpkeuzes
 
-Ik heb gekozen om de kleuren van veronica aan te houden omdat dit mijn homepage werd, ook heb ik gekozen om iets van het design af te wijken kwa kleuren aangezien ik de kleurencombinatie erg saai vond voor een radiostation. Ik heb ervoor gekozen om elk programma kopje de kleur roze te maken voor een iets speelsere en aantrekkelijkere website. Ik heb ook een extra functie toegevoegd namelijk een like functie waardoor jij je favoriete dj kan opslaan in de /likes url en dan je gewenste programma makkelijk kan terugvinden / afspelen.
+Ik heb gekozen om de kleuren van veronica aan te houden omdat dit mijn homepage werd, ook heb ik gekozen om iets van het design af te wijken kwa kleuren aangezien ik de kleurencombinatie erg saai vond voor een radiostation. Ik heb ervoor gekozen om elk programma kopje de kleur roze te maken voor een iets speelsere en aantrekkelijkere website. Ik heb ook een extra functie toegevoegd namelijk een like functie waardoor jij je favoriete dj kan opslaan in de /likes url en dan je gewenste programma makkelijk kan terugvinden / afspelen. Aan de like button heb ik een creatieve loading state meegegeven zodat de eindgebruiker duidelijke feedback krijg zodat hij / zij weet dat de like verzonden wordt, zodra de like binnen is verandert het hartje naar de kleur roze net zoals de programmering kleur
 
 ### Mobiel
 <img width="317" alt="Screenshot 2025-06-22 at 19 15 45" src="https://github.com/user-attachments/assets/d2b3c152-8475-43fe-9ed7-5fe41d57b376" />
